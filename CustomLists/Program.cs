@@ -10,7 +10,10 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-
+            Marbles<int> list = new Marbles<int>();
+            list.Add(4);
+            Console.WriteLine(list[0]);
+            Console.ReadLine();
         }
     }
 }

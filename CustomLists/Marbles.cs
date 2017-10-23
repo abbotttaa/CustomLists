@@ -9,37 +9,28 @@ namespace CustomList
     public class Marbles<T>
     {
         T[] marblesArray;
-        T[] passedInValueArray;
-        T[] marblesArrayCombined;
+        //T[] marblesArrayCombined;
         int capacity;
         int count;
 
         public Marbles()
         {
             this.capacity = 5;
+            this.marblesArray = new T[capacity];
+           
         }
         public T this[int i]
         {
-            get { return marblesArrayCombined[i]; }
+            get { return marblesArray[i]; }
 
-            set { marblesArrayCombined[i] = value; }
+            set { marblesArray[i] = value; }
         }
         
        
         public void Add(T input)
         {
-            //CheckArrayCurrentSize();
-            //CheckIncomingArraySize();
             IsArrayLargeEnough();
-            CountArray();
-            for (int i = 0; i >= count; i++)
-            {
-                marblesArrayCombined[i] = marblesArray[i];
-                if(marblesArray[i+1] == null)
-                {
-                    marblesArrayCombined[i + 1] = input;
-                }
-            }
+            marblesArray[count] = input;
         }
         public void IsArrayLargeEnough()
         {
@@ -60,53 +51,11 @@ namespace CustomList
         }
         public void CountArray()
         {
-            for(int i = 0; i >=marblesArray.Length; i++)
+            for(int i = 0; i <=marblesArray.Length; i++)
             {
                 count++;
             }
             count++;
         }
-
-
-        //public void CheckArrayCurrentCount()
-        //{
-        //    int i = 0;
-
-        //    T valueAtIndex = marblesArray[i];
-
-        //    int lenghtOfCurrentArray = 0;
-
-        //    for (i = 0; valueAtIndex == null; i++)
-        //    {
-        //        valueAtIndex = marblesArray[i];
-
-        //        if (valueAtIndex != null)
-        //        {
-        //            lenghtOfCurrentArray++;
-        //        }
-        //    }
-        //}
-        //public void CheckIncomingArraySize()
-        //{
-        //    int i = 0;
-
-        //    T valueAtIndex = passedInValueArray[i];
-
-        //    int lenghtOfIncomingArray = 0;
-
-        //    for (i = 0; valueAtIndex == null; i++)
-        //    {
-        //        valueAtIndex = marblesArray[i];
-
-        //        if (valueAtIndex != null)
-        //        {
-        //            lenghtOfIncomingArray++;
-        //        }
-        //    }
-        //}
-        //public void EstablishNewArraySize()
-        //{        
-        //   capacity = lenghtOfCurrentArray + lenghtOfIncomingArray;
-        //}
     }
 }
