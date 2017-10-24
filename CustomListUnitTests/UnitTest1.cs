@@ -87,6 +87,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(marbInt[0], input1);
         }
+        [TestMethod]
         public void ConfirmListOrderIndex1()
         {
             Marbles<double> marbInt = new Marbles<double>();
@@ -101,6 +102,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(marbInt[1], input2);
         }
+        [TestMethod]
         public void ConfirmListOrderIndex2()
         {
             Marbles<double> marbInt = new Marbles<double>();
@@ -115,6 +117,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(marbInt[2], input3);
         }
+        [TestMethod]
         public void ConfirmListOrderIndex3()
         {
             Marbles<double> marbInt = new Marbles<double>();
@@ -129,33 +132,75 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(marbInt[3], input4);
         }
+        [TestMethod]
         public void RemoveInt()
         {
             Marbles<int> list = new Marbles<int>() { 1, 2, 3 };
-            int input = 5;
+            int input = 2;
             list.Remove(input);
             //assert
-            Assert.AreEqual
-
-
+            Assert.AreEqual(list[1], 3);
         }
+        [TestMethod]
+        public void RemoveIntFalseReturn()
+        {
+            Marbles<int> list = new Marbles<int>() { 1, 2, 3 };
+            int input = 4;
+            bool result = list.Remove(input);
+            //assert
+            Assert.AreNotEqual(result, false);
+        }
+            
+        [TestMethod]
         public void RemoveDouble()
         {
-
+            Marbles<double> list = new Marbles<double>() { 1.1, 2.2, 3.3 };
+            double input = 2.2;
+            list.Remove(input);
+            //assert
+            Assert.AreEqual(list[1], 3.3);
         }
+        [TestMethod]
         public void RemoveString()
         {
-
+            Marbles<string> list = new Marbles<string>() { "apple", "banana", "mango" };
+            string input = "banana";
+            list.Remove(input);
+            //assert
+            Assert.AreEqual(list[1], "mango");
         }
-        public void RemoveNegativeDouble()
+        [TestMethod]
+        public void RemoveNegativeint()
         {
-
+            Marbles<int> list = new Marbles<int>() { -1, -2, -3 };
+            int input = -2;
+            list.Remove(input);
+            //assert
+            Assert.AreEqual(list[1], -3);
         }
+        [TestMethod]
         public void RemoveBool()
         {
-
+            Marbles<bool> list = new Marbles<bool>() { true, false, true };
+            bool input = false;
+            list.Remove(input);
+            //assert
+            Assert.AreEqual(list[1], true);
         }
+        [TestMethod]
         public void RemoveList()
+        {
+            Marbles<int> list1 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list2 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list3 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<Marbles<int>> listOfLists = new Marbles<Marbles<int>>() { list1, list2, list3 };
+            Marbles<int> input = list2;
+            listOfLists.Remove(input);
+            //assert
+            Assert.AreEqual(listOfLists[1], list3);
+        }
+        [TestMethod]
+        public void blah()
         {
 
         }

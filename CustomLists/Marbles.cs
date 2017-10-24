@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class Marbles<T>
+    public class Marbles<T> : IEnumerable<T>
     {
         T[] marblesArray;
-        //T[] marblesArrayCombined;
         int capacity;
         int count;
 
-        public Marbles()
+        public Marbles() 
         {
             this.capacity = 5;
             this.marblesArray = new T[capacity];
@@ -24,10 +24,12 @@ namespace CustomList
 
             set { marblesArray[i] = value; }
         }
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator<T> IGetEnumerator()
         {
             for (int i = 0; i < count; i++)
+            {
                 yield return marblesArray[i];
+            }
         }
         
        
@@ -37,15 +39,56 @@ namespace CustomList
             marblesArray[count] = input;
             count++;
         }
-        public void Remove(T input)
+        public bool Remove(T input)
         {
+            int currentCount = count;
+            FindInputToRemove(input);
+            FixArrayRemove();
+            if (count == currentCount)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
 
+        }
+        public void FixArrayRemove()
+        {
+            T[] TempArray = new T[capacity];
+            for (int i = 0; i >= (count-1); i++)
+            {
+                TempArray[i] = marblesArray[i];
+            }
+            marblesArray = TempArray;
         }
         public void IsArrayLargeEnough()
         {
             if(capacity <= (count/2))
             {
                 FixArraySize();
+            }
+        }
+        public void FindInputToRemove(T input)
+        {
+            
+            int checkedIndexes = 0;
+
+            for (int i = 0; i <= capacity; i++)
+            {
+                checkedIndexes++;
+
+                if (marblesArray[i].Equals(input))
+                {                 
+                    while (i < count)
+                    {
+
+                        marblesArray[i] = marblesArray[i + 1];
+                    }
+                    count--;
+                    break;
+                }            
             }
         }
         public void FixArraySize()
@@ -58,12 +101,19 @@ namespace CustomList
             }
             marblesArray = TempArray;
         }
-        public void CountArray()
+        
+
+        public IEnumerator<T> GetEnumerator()
         {
-            for(int i = 0; i <=marblesArray.Length; i++)
+            for (int i = 0; i < count; i++)
             {
-                count++;
+                yield return marblesArray[i];
             }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
