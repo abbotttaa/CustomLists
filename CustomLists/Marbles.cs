@@ -17,7 +17,6 @@ namespace CustomList
         {
             this.capacity = 5;
             this.marblesArray = new T[capacity];
-           
         }
         public T this[int i]
         {
@@ -25,12 +24,22 @@ namespace CustomList
 
             set { marblesArray[i] = value; }
         }
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+                yield return marblesArray[i];
+        }
         
        
         public void Add(T input)
         {
             IsArrayLargeEnough();
             marblesArray[count] = input;
+            count++;
+        }
+        public void Remove(T input)
+        {
+
         }
         public void IsArrayLargeEnough()
         {
@@ -55,7 +64,6 @@ namespace CustomList
             {
                 count++;
             }
-            count++;
         }
     }
 }

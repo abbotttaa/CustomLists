@@ -57,14 +57,11 @@ namespace CustomListUnitTests
         [TestMethod]
         public void AddList()
         {
-            //ExtraList<ExtraList<int>> foo = new ExtraList<ExtraList<int>>();
-            //ExtraList<int> intList = new ExtraList<int>();
             Marbles<int> intList = new Marbles<int>();
             Marbles<Marbles<int>> marbInt = new Marbles<Marbles<int>>();
-            intList.Add(1);
             marbInt.Add(intList);
             //assert
-            Assert.AreEqual(marbInt[0], 1);
+            Assert.AreEqual(intList, marbInt[0]);
         }
         [TestMethod]
         public void AddNegativeDouble()
@@ -132,6 +129,38 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(marbInt[3], input4);
         }
+        public void RemoveInt()
+        {
+            Marbles<int> list = new Marbles<int>() { 1, 2, 3 };
+            int input = 5;
+            list.Remove(input);
+            //assert
+            Assert.AreEqual
+
+
+        }
+        public void RemoveDouble()
+        {
+
+        }
+        public void RemoveString()
+        {
+
+        }
+        public void RemoveNegativeDouble()
+        {
+
+        }
+        public void RemoveBool()
+        {
+
+        }
+        public void RemoveList()
+        {
+
+        }
+
+
     }
 }
 

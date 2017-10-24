@@ -1,0 +1,9 @@
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\bin\Debug\CustomListUnitTests.dll
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\bin\Debug\CustomListUnitTests.pdb
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\bin\Debug\CustomLists.exe
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\bin\Debug\CustomLists.pdb
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\obj\Debug\CustomListUnitTests.csprojResolveAssemblyReference.cache
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\obj\Debug\CustomListUnitTests.dll
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomListUnitTests\obj\Debug\CustomListUnitTests.pdb
