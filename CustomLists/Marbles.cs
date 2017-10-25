@@ -18,20 +18,19 @@ namespace CustomList
             this.capacity = 5;
             this.marblesArray = new T[capacity];
         }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
         public T this[int i]
         {
             get { return marblesArray[i]; }
 
             set { marblesArray[i] = value; }
         }
-        public IEnumerator<T> IGetEnumerator()
-        {
-            for (int i = 0; i < count; i++)
-            {
-                yield return marblesArray[i];
-            }
-        }
-        
        
         public void Add(T input)
         {
@@ -67,6 +66,55 @@ namespace CustomList
                 TempArray[i] = marblesArray[i];
             }
             marblesArray = TempArray;
+        }
+        public static Marbles<T> operator + (Marbles<T> list1, Marbles<T> list2)
+        {
+            Marbles<T> marblesArray = new Marbles<T>();
+            
+            
+            for(int i = 0; i < list1.Count; i++)
+            {
+                marblesArray.Add(list1[i]);
+            }
+            for(int i = 0; i < list2.Count; i++)
+            {
+                marblesArray.Add(list2[i]);
+            }
+            return marblesArray;
+        }
+        public static Marbles<T> operator -(Marbles<T> list1, Marbles<T> list2)
+        {
+            Marbles<T> marblesArray = new Marbles<T>();
+            Marbles<T> tempArray = new Marbles<T>();
+
+            for (int i = 0; i < list1.Count; i++)
+            {
+                for(int j = 0; j <list2.Count; i++)
+                {
+                    bool result = list2.Remove(list1[i]);
+                    if(result == false)
+                    {
+                        tempArray.Add(list1[i]);
+                    }
+                }
+
+            }
+
+
+            for (int i = 0; i < list2.Count; i++)
+            {
+                for(int j = 0; j < list1.Count; i++)
+                {
+                    bool result = list1.Remove(list2[i]);
+                    if(result == false)
+                    {
+                        tempArray.Add(list2[i]);
+                    }
+                }
+            }
+
+
+            return marblesArray;
         }
         public void IsArrayLargeEnough()
         {

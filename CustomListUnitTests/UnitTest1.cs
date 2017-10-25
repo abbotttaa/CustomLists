@@ -210,6 +210,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(list[1], input);
         }
+        [TestMethod]
         public void ToStringBool()
         {
             Marbles<bool> list = new Marbles<bool>();
@@ -220,6 +221,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(list[0], input);
         }
+        [TestMethod]
         public void ToStringString()
         {
             Marbles<string> list = new Marbles<string>();
@@ -230,6 +232,7 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(list[1], input);
         }
+        [TestMethod]
         public void ToStringList()
         {
             Marbles<double> list1 = new Marbles<double>();
@@ -239,6 +242,79 @@ namespace CustomListUnitTests
             //assert
             Assert.AreEqual(list1[0], list1);
         }
+        [TestMethod]
+        public void AddOverloadInt()
+        {
+            Marbles<int> list1 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list2 = new Marbles<int>() { 4, 5, 6 };
+            Marbles<int> list3 = new Marbles<int>();
+            Marbles<int> banana = new Marbles<int>() { 1, 2, 3, 4, 5, 6 };
+            list3 = list1 + list2;
+            
+            //assert
+            Assert.AreEqual(banana[0], list1[0]);
+        }
+        [TestMethod]
+        public void AddOverloadIntEndCheck()
+        {
+            Marbles<int> list1 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list2 = new Marbles<int>() { 4, 5, 6 };
+            Marbles<int> list3 = new Marbles<int>();
+            Marbles<int> banana = new Marbles<int>() { 1, 2, 3, 4, 5, 6 };
+            list3 = list1 + list2;
+
+            //assert
+            Assert.AreEqual(banana[5], list2[2]);
+        }
+        [TestMethod]
+        public void AddOverloadStringCount()
+        {
+            Marbles<int> list1 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list2 = new Marbles<int>() { 4, 5, 6 };
+            Marbles<int> list3 = new Marbles<int>();
+            Marbles<int> banana = new Marbles<int>() { 1, 2, 3, 4, 5, 6 };
+            list3 = list1 + list2;
+
+            //assert
+            Assert.AreEqual(banana.Count, 6);
+        }
+        [TestMethod]
+        public void SubtractOverloadInt()
+        {
+            Marbles<int> list1 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list2 = new Marbles<int>() { 4, 5, 6 };
+            Marbles<int> list3 = new Marbles<int>();
+            Marbles<int> banana = new Marbles<int>() { 1, 2, 3, 4, 5, 6 };
+            list3 = list1 - list2;
+
+            //assert
+            Assert.AreEqual(banana[0], list1[0]);
+        }
+        [TestMethod]
+        public void SubtractOverloadIntEndCheck()
+        {
+            Marbles<int> list1 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list2 = new Marbles<int>() { 4, 1, 6 };
+            Marbles<int> list3 = new Marbles<int>();
+            Marbles<int> banana = new Marbles<int>() { 1, 2, 3, 4, 5, 6 };
+            list3 = list1 - list2;
+
+            //assert
+            Assert.AreEqual(banana[5], list2[2]);
+        }
+        [TestMethod]
+        public void SubtractOverloadStringCount()
+        {
+            Marbles<int> list1 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list2 = new Marbles<int>() { 4, 5, 6 };
+            Marbles<int> list3 = new Marbles<int>();
+            Marbles<int> banana = new Marbles<int>() { 1, 2, 3, 4, 5, 6 };
+            list3 = list1 - list2;
+
+            //assert
+            Assert.AreEqual(banana.Count, 6);
+        }
+
 
 
     }
