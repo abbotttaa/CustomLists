@@ -148,7 +148,7 @@ namespace CustomListUnitTests
             int input = 4;
             bool result = list.Remove(input);
             //assert
-            Assert.AreNotEqual(result, false);
+            Assert.AreNotEqual(result, true);
         }
             
         [TestMethod]
@@ -191,8 +191,8 @@ namespace CustomListUnitTests
         public void RemoveList()
         {
             Marbles<int> list1 = new Marbles<int>() { 1, 2, 3 };
-            Marbles<int> list2 = new Marbles<int>() { 1, 2, 3 };
-            Marbles<int> list3 = new Marbles<int>() { 1, 2, 3 };
+            Marbles<int> list2 = new Marbles<int>() { 4, 5, 6 };
+            Marbles<int> list3 = new Marbles<int>() { 7, 8, 9 };
             Marbles<Marbles<int>> listOfLists = new Marbles<Marbles<int>>() { list1, list2, list3 };
             Marbles<int> input = list2;
             listOfLists.Remove(input);
@@ -200,9 +200,44 @@ namespace CustomListUnitTests
             Assert.AreEqual(listOfLists[1], list3);
         }
         [TestMethod]
-        public void blah()
+        public void ToStringInt()
         {
-
+            Marbles<int> list = new Marbles<int>();
+            list.Add(4);
+            list.Add(5);
+            int input = 5;
+            list.ToString();
+            //assert
+            Assert.AreEqual(list[1], input);
+        }
+        public void ToStringBool()
+        {
+            Marbles<bool> list = new Marbles<bool>();
+            list.Add(false);
+            list.Add(false);
+            bool input = false;
+            list.ToString();
+            //assert
+            Assert.AreEqual(list[0], input);
+        }
+        public void ToStringString()
+        {
+            Marbles<string> list = new Marbles<string>();
+            list.Add("banana");
+            list.Add("mango");
+            string input = "mango";
+            list.ToString();
+            //assert
+            Assert.AreEqual(list[1], input);
+        }
+        public void ToStringList()
+        {
+            Marbles<double> list1 = new Marbles<double>();
+            Marbles<Marbles<double>> list2 = new Marbles<Marbles<double>>();
+            list2.Add(list1);
+            list2.ToString();
+            //assert
+            Assert.AreEqual(list1[0], list1);
         }
 
 

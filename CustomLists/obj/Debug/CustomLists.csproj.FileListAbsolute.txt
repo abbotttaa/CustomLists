@@ -1,0 +1,6 @@
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomLists\bin\Debug\CustomLists.exe.config
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomLists\bin\Debug\CustomLists.exe
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomLists\bin\Debug\CustomLists.pdb
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomLists\obj\Debug\CustomLists.exe
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomLists\obj\Debug\CustomLists.pdb
+C:\Users\abbot\Desktop\All\DevCodeCamp\C#\Examples\CustomLists\CustomLists\obj\Debug\CustomLists.csprojResolveAssemblyReference.cache

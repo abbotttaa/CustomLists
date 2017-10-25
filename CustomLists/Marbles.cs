@@ -44,20 +44,25 @@ namespace CustomList
             int currentCount = count;
             FindInputToRemove(input);
             FixArrayRemove();
-            if (count == currentCount)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return count != currentCount;
+        }
+        //public void ToString(T value)
+        //{
 
+        //}
+        public override string ToString()
+        {
+            string newString = "";
+            for(int i = 0; i < count; i++)
+            {
+                newString += marblesArray[i].ToString();
+            }
+            return newString;
         }
         public void FixArrayRemove()
         {
             T[] TempArray = new T[capacity];
-            for (int i = 0; i >= (count-1); i++)
+            for (int i = 0; i <= (count-1); i++)
             {
                 TempArray[i] = marblesArray[i];
             }
@@ -72,19 +77,16 @@ namespace CustomList
         }
         public void FindInputToRemove(T input)
         {
-            
-            int checkedIndexes = 0;
 
-            for (int i = 0; i <= capacity; i++)
+            for (int i = 0; i <= count; i++)
             {
-                checkedIndexes++;
-
+                
                 if (marblesArray[i].Equals(input))
                 {                 
                     while (i < count)
                     {
-
                         marblesArray[i] = marblesArray[i + 1];
+                        i++;
                     }
                     count--;
                     break;
@@ -114,6 +116,6 @@ namespace CustomList
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
+        } 
     }
 }
