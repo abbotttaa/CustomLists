@@ -235,12 +235,13 @@ namespace CustomListUnitTests
         [TestMethod]
         public void ToStringList()
         {
-            Marbles<double> list1 = new Marbles<double>();
+            Marbles<double> list1 = new Marbles<double>() { 1, 2, 3, 4, 5, };
             Marbles<Marbles<double>> list2 = new Marbles<Marbles<double>>();
+            string expectedBanana = "12345";
             list2.Add(list1);
-            list2.ToString();
+            string banana = list2.ToString();
             //assert
-            Assert.AreEqual(list1[0], list1);
+            Assert.AreEqual(banana, expectedBanana);
         }
         [TestMethod]
         public void AddOverloadInt()
@@ -313,6 +314,13 @@ namespace CustomListUnitTests
 
             //assert
             Assert.AreEqual(banana.Count, 6);
+        }
+        [TestMethod]
+        public void CountList()
+        {
+            Marbles<int> list = new Marbles<int>() { 1, 2, 3, 4, 5, 6 };
+
+            list.
         }
 
 

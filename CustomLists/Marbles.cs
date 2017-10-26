@@ -15,7 +15,7 @@ namespace CustomList
 
         public Marbles() 
         {
-            this.capacity = 5;
+            this.capacity = 10;
             this.marblesArray = new T[capacity];
         }
         public int Count
@@ -86,39 +86,67 @@ namespace CustomList
         {
             Marbles<T> marblesArray = new Marbles<T>();
             Marbles<T> tempArray = new Marbles<T>();
+            Marbles<T> tempList1 = new Marbles<T>();
+            Marbles<T> tempList2 = new Marbles<T>();
+
 
             for (int i = 0; i < list1.Count; i++)
             {
-                for(int j = 0; j <list2.Count; i++)
-                {
-                    bool result = list2.Remove(list1[i]);
-                    if(result == false)
-                    {
-                        tempArray.Add(list1[i]);
-                    }
-                }
-
+                marblesArray.Add(list1[i]);
             }
-
-
             for (int i = 0; i < list2.Count; i++)
             {
-                for(int j = 0; j < list1.Count; i++)
-                {
-                    bool result = list1.Remove(list2[i]);
-                    if(result == false)
-                    {
-                        tempArray.Add(list2[i]);
-                    }
-                }
+                marblesArray.Add(list2[i]);
             }
 
+            for (int i = 0; i < list1.Count; i++)
+            {
+                var valueToCheck1 = list1[i];
+                for (int j = 0; j < list2.Count; j++)
+                {
+                    if (list1[i].Equals(list2[j]))
+                    {
+                        marblesArray.Remove(list1[i]);
+                        break;
+                    }
 
+                }
+            }
             return marblesArray;
+                
+
+                //    for (int i = 0; i < tempList1.Count; i++)
+                //    {
+                //        for(int j = 0; j < tempList2.Count; i++)
+                //        {
+                //            bool result = list2.Remove(list1[i]);
+                //            if(result == false)
+                //            {
+                //                tempArray.Add(list1[i]);
+                //            }
+                //        }
+
+                //    }
+
+
+                //    for (int i = 0; i < tempList2.Count; i++)
+                //    {
+                //        for(int j = 0; j < tempList1.Count; i++)
+                //        {
+                //            bool result = list1.Remove(list2[i]);
+                //            if(result == false)
+                //            {
+                //                tempArray.Add(list2[i]);
+                //            }
+                //        }
+                //    }
+
+
+                //    return marblesArray;
         }
         public void IsArrayLargeEnough()
         {
-            if(capacity <= (count/2))
+            if(capacity <= (count*2))
             {
                 FixArraySize();
             }
@@ -145,7 +173,7 @@ namespace CustomList
         {
             capacity = (capacity * 2);
             T[] TempArray = new T[capacity];
-            for(int i =0; i >= count; i++)
+            for(int i =0; i <= count; i++)
             {
                 TempArray[i] = marblesArray[i];
             }
