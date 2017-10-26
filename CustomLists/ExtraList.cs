@@ -8,9 +8,6 @@ namespace CustomList
 {
     public class ExtraList<T>
     {
-        public void Add(T Value)
-        {
-
-        }
+        
     }
 }

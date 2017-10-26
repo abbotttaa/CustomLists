@@ -320,7 +320,28 @@ namespace CustomListUnitTests
         {
             Marbles<int> list = new Marbles<int>() { 1, 2, 3, 4, 5, 6 };
 
-            list.
+            int howManyElements = list.Count;
+        }
+        [TestMethod]
+
+        public void ZipTwoListsOfInts()
+        {
+            Marbles<int> listOdds = new Marbles<int>() { 1, 3, 5, 7, 9 };
+            Marbles<int> listEvens = new Marbles<int>() { 2, 4, 6, 8, 10 };
+            Marbles<int> list = new Marbles<int>();
+            Marbles<int> expectedList = new Marbles<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+             Marbles<int> result = list.ZipTwoLists(listOdds, listEvens);
+            //assert
+            Assert.AreEqual(expectedList, result);
+        }
+        [TestMethod]
+
+        public void ZipTwoListsOfObjects()
+        {
+            Marbles<ExtraList<int>> listOfObjects1 = new Marbles<ExtraList<int>>();
+            Marbles<ExtraList<int>> listOfObjects2 = new Marbles<ExtraList<int>>();
+            
         }
 
 

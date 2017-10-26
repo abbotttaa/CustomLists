@@ -113,36 +113,18 @@ namespace CustomList
                 }
             }
             return marblesArray;
-                
-
-                //    for (int i = 0; i < tempList1.Count; i++)
-                //    {
-                //        for(int j = 0; j < tempList2.Count; i++)
-                //        {
-                //            bool result = list2.Remove(list1[i]);
-                //            if(result == false)
-                //            {
-                //                tempArray.Add(list1[i]);
-                //            }
-                //        }
-
-                //    }
-
-
-                //    for (int i = 0; i < tempList2.Count; i++)
-                //    {
-                //        for(int j = 0; j < tempList1.Count; i++)
-                //        {
-                //            bool result = list1.Remove(list2[i]);
-                //            if(result == false)
-                //            {
-                //                tempArray.Add(list2[i]);
-                //            }
-                //        }
-                //    }
-
-
-                //    return marblesArray;
+        }
+        public Marbles<T> ZipTwoLists(Marbles<T> ListOdds, Marbles<T> ListEvens)
+        {
+            Marbles<T> marblesArray = new Marbles<T>();
+            int fullCount = (ListOdds.Count+ ListEvens.Count);
+            int indexTracker;
+            for(int i=0; i < fullCount; i++)
+            {
+               Add(ListOdds[Count]);
+               Add(ListEvens[Count]);
+            }
+            return marblesArray;
         }
         public void IsArrayLargeEnough()
         {
