@@ -117,12 +117,20 @@ namespace CustomList
         public Marbles<T> ZipTwoLists(Marbles<T> ListOdds, Marbles<T> ListEvens)
         {
             Marbles<T> marblesArray = new Marbles<T>();
-            int fullCount = (ListOdds.Count+ ListEvens.Count);
-            int indexTracker;
+            int fullCountMass = (ListOdds.Count+ ListEvens.Count);
+            int fullCount = (fullCountMass / 2);
+            int indexTracker = 0;
             for(int i=0; i < fullCount; i++)
             {
-               Add(ListOdds[Count]);
-               Add(ListEvens[Count]);
+                if (ListOdds[indexTracker] != null)
+                { 
+                    Add(ListOdds[indexTracker]);
+                }
+                if (ListEvens[indexTracker] != null)
+                {
+                    Add(ListEvens[indexTracker]);
+                }
+               indexTracker++;
             }
             return marblesArray;
         }
